@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+
+  nginx:
+    build:
+      context: ./..
+      dockerfile: docker/nginx/Dockerfile
+    hostname: auth-service
+    volumes:
+      - ./../:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    links:
+      - phpfpm
+
+  phpfpm:
+    build:
+      context: ./..
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - ./../:/var/www/html
+      - ./php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    links:
+      - mariadb
+
+  mariadb:
+    build:
+      context: ./..
+      dockerfile: docker/mariadb/Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: database
+      MYSQL_USER: developer
+      MYSQL_PASSWORD: developer
+    volumes:
+      - ./mariadb/.data:/var/lib/mysql
+    ports:
+      - "3306:3306"
