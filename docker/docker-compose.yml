@@ -6,7 +6,6 @@ services:
     build:
       context: ./..
       dockerfile: docker/nginx/Dockerfile
-    hostname: auth-service
     volumes:
       - ./../:/var/www/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
