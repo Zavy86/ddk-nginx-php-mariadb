@@ -1,5 +1,11 @@
-# Docker Developers Kit
+# Docker Developers Kit | PHP
 > NGINX, PHP, MariaDB
+
+🧑🏻‍💻 Docker Developers Kit - A light skeleton for PHP local development system
+
+Repository: https://github.com/Zavy86/ddk-nginx-php-mariadb
+
+[![Docker Developers Kit YouTube Video](https://raw.githubusercontent.com/Zavy86/ddk-nginx-php-mariadb/main/youtube-cover.jpg)](https://www.youtube.com/watch?v=3j5zoLeQ6qs "Watch the tutorial on YouTube")
 
 ## Startup
 
